@@ -1,6 +1,7 @@
-import { Card, Image, Text, RatingGroup } from "@chakra-ui/react";
+import { Badge, Card, Center, HStack, Image } from "@chakra-ui/react";
 import type { Game } from "@/hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
+import MetaCritic from "./MetaCritic";
 
 interface Props {
   game: Game;
@@ -8,7 +9,12 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card.Root maxW="sm" overflow="hidden">
+    <Card.Root
+      maxW="sm"
+      overflow="hidden"
+      bg={"gray.900"}
+      border={"whiteAlpha.200"}
+    >
       <Image
         src={game.background_image}
         alt={game.name}
@@ -16,10 +22,14 @@ const GameCard = ({ game }: Props) => {
         objectFit="cover"
       />
       <Card.Body gap="2">
-        <PlatformIconList
-          platforms={game.parent_platforms.map((p) => p.platform)}
-        ></PlatformIconList>
-        <Card.Title>{game.name}</Card.Title>
+        <HStack justifyContent="space-between" marginBottom={3}>
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          ></PlatformIconList>
+          <MetaCritic metacritic={game.metacritic}></MetaCritic>
+        </HStack>
+
+        <Card.Title color={"white"}>{game.name}</Card.Title>
       </Card.Body>
     </Card.Root>
   );

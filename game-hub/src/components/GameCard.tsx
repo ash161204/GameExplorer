@@ -1,7 +1,8 @@
-import { Badge, Card, Center, HStack, Image } from "@chakra-ui/react";
+import { Card, HStack, Image } from "@chakra-ui/react";
 import type { Game } from "@/hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import MetaCritic from "./MetaCritic";
+import getCroppedImageUrl from "@/services/image-url";
 
 interface Props {
   game: Game;
@@ -16,7 +17,7 @@ const GameCard = ({ game }: Props) => {
       border={"whiteAlpha.200"}
     >
       <Image
-        src={game.background_image}
+        src={getCroppedImageUrl(game.background_image)}
         alt={game.name}
         height="200px"
         objectFit="cover"

@@ -14,7 +14,8 @@ const GameCard = ({ game }: Props) => {
       maxW="sm"
       overflow="hidden"
       bg={"gray.900"}
-      border={"whiteAlpha.200"}
+      boxShadow={"none"}
+      border="none"
     >
       <Image
         src={getCroppedImageUrl(game.background_image)}

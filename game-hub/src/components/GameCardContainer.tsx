@@ -6,7 +6,14 @@ interface Props {
 }
 const GameCardContainer = ({ children }: Props) => {
   return (
-    <Box maxW="sm" overflow="hidden" bg={"gray.900"} border={"whiteAlpha.200"}>
+    <Box
+      maxW="sm"
+      overflow="hidden"
+      bg={"gray.900"}
+      boxShadow={"none"}
+      border="none"
+      borderRadius="xl"
+    >
       {children}
     </Box>
   );

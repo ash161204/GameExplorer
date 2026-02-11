@@ -33,10 +33,12 @@ const PlatformIconList = ({ platforms }: Props) => {
 
   return (
     <HStack marginY={1}>
-      {platforms.map((platform) => (
-        // We use the slug (e.g., 'pc') to find the right icon in our map
-        <Icon key={platform.id} as={iconMap[platform.slug]} color="white" />
-      ))}
+      {platforms.map((platform) => {
+        const IconComponent = iconMap[platform.slug];
+        if (!IconComponent) return null;
+
+        return <Icon key={platform.id} as={IconComponent} color="white" />;
+      })}
     </HStack>
   );
 };

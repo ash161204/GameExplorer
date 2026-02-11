@@ -17,7 +17,7 @@ const App = () => {
         base: "1fr",
         lg: "200px 1fr",
       }}
-      gap={4}
+      gap={6}
       bg="bg.canvas"
       color="fg"
     >

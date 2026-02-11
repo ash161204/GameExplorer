@@ -33,11 +33,16 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 objectFit="cover"
               />
               <Link
-                fontSize="lg"
-                fontWeight="medium"
                 onClick={() => onSelectGenre(genre)}
-                // fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
-                colorPalette={genre.id === selectedGenre?.id ? "blue" : "gray"}
+                fontSize="lg"
+                color={genre.id === selectedGenre?.id ? "blue.500" : "fg"}
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                variant="plain"
+                _hover={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  color: "blue.400",
+                }}
               >
                 {genre.name}
               </Link>

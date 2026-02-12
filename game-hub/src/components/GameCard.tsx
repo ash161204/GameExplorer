@@ -19,7 +19,7 @@ const GameCard = ({ game }: Props) => {
     >
       <Image
         src={getCroppedImageUrl(game.background_image)}
-        alt={game.name}
+        alt={"https://placehold.co/600x400?text=No+Image+Available"}
         height="200px"
         objectFit="cover"
       />

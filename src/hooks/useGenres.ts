@@ -14,7 +14,12 @@ const useGenres = () => {
     queryKey: ["genres"],
     queryFn: () => createApiClient("genres").getAll<Genre>(),
     staleTime: 24 * 60 * 60 * 1000, // 24 hrs
-    initialData: { count: genres.length, results: genres },
+    initialData: {
+      count: genres.length,
+      next: null,
+      previous: null,
+      results: genres,
+    },
   });
 };
 

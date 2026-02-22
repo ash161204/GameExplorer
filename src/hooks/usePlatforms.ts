@@ -15,7 +15,12 @@ const usePlatforms = () =>
     queryFn: () =>
       createApiClient("/platforms/lists/parents").getAll<Platform>(),
     staleTime: 5 * 24 * 60 * 60 * 1000, // 5 days
-    initialData: { count: platforms.length, results: platforms },
+    initialData: {
+      count: platforms.length,
+      next: null,
+      previous: null,
+      results: platforms,
+    },
   });
 
 export default usePlatforms;

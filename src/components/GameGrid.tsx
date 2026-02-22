@@ -29,7 +29,7 @@ const GameGrid = ({ gameQuery }: Props) => {
             </GameCardContainer>
           ))}
         {!isLoading &&
-          games?.map((game) => (
+          games?.results?.map((game) => (
             <GameCardContainer key={game.id}>
               <GameCard game={game}></GameCard>
             </GameCardContainer>

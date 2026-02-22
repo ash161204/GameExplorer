@@ -2,6 +2,7 @@ import type { GameQuery } from "@/App";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import type { Platform } from "./usePlatforms";
 import createApiClient, { type FetchResponse } from "@/services/api-client";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -33,7 +34,7 @@ const useGames = (gameQuery: GameQuery) =>
 
       return allPages.length + 1;
     },
-    staleTime: 24 * 60 * 60 * 1000, //24 hrs
+    staleTime: ms("24h"), //24 hrs
   });
 
 export default useGames;

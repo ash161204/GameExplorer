@@ -5,10 +5,10 @@ import SkeltonGenreList from "./SkeltonGenreList";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data: genres, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -39,8 +39,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Link
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
-                color={genre.id === selectedGenre?.id ? "blue.500" : "fg"}
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                color={genre.id === selectedGenreId ? "blue.500" : "fg"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 variant="plain"
                 _hover={{
                   textDecoration: "underline",

@@ -2,10 +2,7 @@ import { Input, InputGroup } from "@chakra-ui/react";
 import { LuSearch } from "react-icons/lu";
 import { useRef } from "react";
 import { keyframes } from "@emotion/react";
-
-interface Props {
-  onSearch: (search: string) => void;
-}
+import useGameQueryStore from "@/store";
 
 const gradientGlow = keyframes`
   0% { 
@@ -26,14 +23,15 @@ const gradientGlow = keyframes`
   }
 `;
 
-const SearchInput = ({ onSearch }: Props) => {
+const SearchInput = () => {
+  const setSearchText = useGameQueryStore((s) => s.setSearchText);
+
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        console.log("Submitted:", ref.current?.value);
-        if (ref.current) onSearch(ref.current.value);
+        if (ref.current) setSearchText(ref.current.value);
       }}
       style={{ width: "100%" }}
     >

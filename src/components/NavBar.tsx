@@ -3,15 +3,11 @@ import { ColorModeButton } from "@/components/ui/color-mode";
 import logo from "../assets/logo.svg";
 import SearchInput from "./SearchInput";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = () => {
   return (
     <HStack justifyContent={"space-between"} padding={"10px"}>
       <Image src={logo} boxSize={"60px"}></Image>
-      <SearchInput onSearch={onSearch}></SearchInput>
+      <SearchInput></SearchInput>
       <ColorModeButton />
     </HStack>
   );

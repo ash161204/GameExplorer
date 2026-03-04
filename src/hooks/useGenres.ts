@@ -3,12 +3,7 @@ import genres from "../data/genres";
 import createApiClient from "@/services/api-client";
 import type { FetchResponse } from "@/services/api-client";
 import ms from "ms";
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
+import type { Genre } from "../entities/Genre";
 
 const useGenres = () => {
   return useQuery<FetchResponse<Genre>, Error>({

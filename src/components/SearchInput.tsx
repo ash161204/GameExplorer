@@ -3,6 +3,7 @@ import { LuSearch } from "react-icons/lu";
 import { useRef } from "react";
 import { keyframes } from "@emotion/react";
 import useGameQueryStore from "@/store";
+import { useNavigate } from "react-router-dom";
 
 const gradientGlow = keyframes`
   0% { 
@@ -25,13 +26,18 @@ const gradientGlow = keyframes`
 
 const SearchInput = () => {
   const setSearchText = useGameQueryStore((s) => s.setSearchText);
+  const navigate = useNavigate();
 
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) setSearchText(ref.current.value);
+
+        if (ref.current) {
+          setSearchText(ref.current.value);
+          navigate("/");
+        }
       }}
       style={{ width: "100%" }}
     >
@@ -47,6 +53,13 @@ const SearchInput = () => {
           borderRadius="full"
           bg="bg.subtle"
           _focus={{
+            bg: { _light: "black", _dark: "white" },
+            color: { _light: "white", _dark: "black" },
+            animation: `${gradientGlow} 3s infinite linear`,
+            outline: "none",
+            _placeholder: { color: "gray.500" },
+          }}
+          _hover={{
             bg: { _light: "black", _dark: "white" },
             color: { _light: "white", _dark: "black" },
             animation: `${gradientGlow} 3s infinite linear`,

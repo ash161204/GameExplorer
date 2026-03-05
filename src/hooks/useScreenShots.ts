@@ -1,6 +1,6 @@
 import createApiClient, { type FetchResponse } from "@/services/api-client";
 import { useQuery } from "@tanstack/react-query";
-import type { ScreenShot } from "../entities/ScreenShot";
+import type ScreenShot from "../entities/ScreenShot";
 
 const useScreenShots = (game_pk: string) => {
   return useQuery<FetchResponse<ScreenShot>, Error>({

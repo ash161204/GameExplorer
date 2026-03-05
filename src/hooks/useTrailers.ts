@@ -1,7 +1,7 @@
 import createApiClient from "@/services/api-client";
 import { useQuery } from "@tanstack/react-query";
 import ms from "ms";
-import type { Trailer } from "../entities/Trailer";
+import type Trailer from "../entities/Trailer";
 
 const useTrailers = (id: number) => {
   return useQuery({
